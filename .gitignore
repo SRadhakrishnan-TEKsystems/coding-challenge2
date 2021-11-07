@@ -36,3 +36,6 @@ hs_err_pid*
 
 .DS_Store
 .idea
+
+# Ignore Gradle build output directory
+build
