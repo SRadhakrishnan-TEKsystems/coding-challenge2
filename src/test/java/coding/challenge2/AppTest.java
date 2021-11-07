@@ -3,12 +3,14 @@
  */
 package coding.challenge2;
 
+import org.testng.Assert;
 import org.testng.annotations.*;
 import static org.testng.Assert.*;
 
 public class AppTest {
-    @Test public void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+
+    @Test(groups = {"smoke"})
+    public void canary() {
+        Assert.assertEquals(true,true);
     }
 }
