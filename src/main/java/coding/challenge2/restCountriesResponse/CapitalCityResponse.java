@@ -22,8 +22,12 @@ public class CapitalCityResponse extends CountryDataResponse {
 
     public CapitalCity get() {
         Gson gson = new Gson();
-        List<CapitalCity> capitalCityList = gson.fromJson(body, new TypeToken<List<CapitalCity>>() {
-        }.getType());
-        return capitalCityList.get(0);
+        if (statusCode ==200) {
+            List<CapitalCity> capitalCityList = gson.fromJson(body, new TypeToken<List<CapitalCity>>() {
+            }.getType());
+            return capitalCityList.get(0);
+        } else {
+            return null;
+        }
     }
 }

@@ -19,15 +19,34 @@ public class CapitalCityRequestTest {
                 {"Dominican Republic","Santo Domingo"},
                 {"San Marino","City of San Marino"},
                 {"china","Beijing"},
+                {"cHIna","Beijing"},
+                {"Mexico","Mexico City"}
+        };
+    }
+
+    @DataProvider(name = "incorrectCountryNameProvider")
+    public Object[][] provideIncorrectCountryName(){
+        return new Object[][]{
+                {"United"},
+                {"USA"},
+                {"123"},
+                {"united sates of america"}
         };
     }
 
     @Test(dataProvider = "properCountryNameProvider" , groups = {"smoke"})
-    public void returnsCorrectCapitalCityForValidInput(String countryInput, String expectedCapitalCity) {
+    public void returnsCorrectCapitalCityForCorrectInput(String countryInput, String expectedCapitalCity) {
         List<String> expectedCountryCapitalList=new ArrayList<>();
         expectedCountryCapitalList.add(expectedCapitalCity);
         CapitalCity actual = CapitalCityRequest.getInstance(countryInput).get();
         CapitalCity expected = new CapitalCity(expectedCountryCapitalList);
         Assert.assertEquals(actual, expected, "The city received is incorrect:");
+    }
+
+    @Test(dataProvider = "incorrectCountryNameProvider" , groups = {"acceptance"})
+    public void returnsNullForIncorrectInput(String countryInput){
+        CapitalCity actual = CapitalCityRequest.getInstance(countryInput).get();
+        CapitalCity expected =null;
+        Assert.assertEquals(actual,expected);
     }
 }
