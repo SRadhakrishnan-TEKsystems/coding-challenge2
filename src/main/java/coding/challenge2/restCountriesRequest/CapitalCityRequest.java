@@ -2,6 +2,7 @@ package coding.challenge2.restCountriesRequest;
 
 import coding.challenge2.restCountries.CapitalCity;
 import coding.challenge2.restCountriesResponse.CapitalCityResponse;
+
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
@@ -18,18 +19,24 @@ public class CapitalCityRequest extends CountryDataRequest {
         this.finalPath = pathEncoder(countryInput);
         client = ClientBuilder.newBuilder()
                 .build();
-        target = client.target(UriBuilder.fromPath(finalPath).queryParam("fullText", "true"));
+        try {
+            target = client.target(UriBuilder.fromPath(finalPath).queryParam("fullText", "true"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private String pathEncoder(String countryInput) {
-        return PATH + countryInput;
+        String countryName = countryInput.trim();
+        countryName.replaceAll("[^a-zA-Z0-9]", " ");
+        return PATH + countryName;
     }
 
     public static CapitalCityRequest getInstance(String countryInput) {
         return new CapitalCityRequest(countryInput);
     }
 
-    protected CapitalCity get() {
+    public CapitalCity get() {
         Response response = null;
         try {
             response = target.request().get();

@@ -4,7 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertNotNull;
 
 public class CLIGameTest {
     @DataProvider(name="logicProvider")
@@ -25,11 +24,12 @@ public class CLIGameTest {
     @Test(dataProvider = "logicProvider", groups = "smoke")
     public void logicTest(Boolean quit,int userInput,Boolean expectedQuitState){
         Boolean expected=expectedQuitState;
-        Boolean actual = CLIGame.cliLoop(userInput,quit);
+        String countryName="Peru";
+        Boolean actual=CLIGame.getInstance().cliLoop(userInput, countryName, quit);
         Assert.assertEquals(actual,expected);
     }
 
-    //Tests pass for wrong reasons. Implementation needs to take in to account a string input
+    //Tests pass for wrong reasons. Implementation needs to take into account a string input
     @Test(dataProvider = "logicStringProvider", groups = "smoke")
     public void stringLogicTest(Boolean quit,String  userInput,Boolean expectedQuitState){
         Boolean actual=true;

@@ -2,6 +2,7 @@ package coding.challenge2.restCountries;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 import java.util.List;
 
 public class CapitalCity {
@@ -19,15 +20,15 @@ public class CapitalCity {
         if (obj.getClass() != this.getClass()) {
             return false;
         }
-        CapitalCity comparator =(CapitalCity) obj;
+        CapitalCity comparator = (CapitalCity) obj;
         return new EqualsBuilder()
-                .append(capital,comparator.capital)
+                .append(capital, comparator.capital)
                 .isEquals();
     }
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder(8,38)
+        return new HashCodeBuilder(8, 38)
                 .append(capital)
                 .toHashCode();
     }
