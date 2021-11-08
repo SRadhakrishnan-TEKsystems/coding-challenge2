@@ -7,3 +7,7 @@
 ### To build
 
         ./gradlew clean build
+
+### To run
+
+        ./gradlew run
