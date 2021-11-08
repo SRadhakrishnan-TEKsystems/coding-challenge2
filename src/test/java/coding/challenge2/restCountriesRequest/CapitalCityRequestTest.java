@@ -12,6 +12,7 @@ public class CapitalCityRequestTest {
     public Object[][] provideProperCountryName(){
         return new Object[][]{
                 {"United States","Washington, D.C."},
+                {"United States of America","Washington, D.C."},
                 {"India","New Delhi"},
                 {"Peru","Lima"},
                 {"peru","Lima"},

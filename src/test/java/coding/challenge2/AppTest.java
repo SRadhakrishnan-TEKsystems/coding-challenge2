@@ -1,6 +1,5 @@
 package coding.challenge2;
 
-import org.testng.Assert;
 import org.testng.annotations.*;
 import static org.testng.Assert.*;
 

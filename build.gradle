@@ -23,6 +23,9 @@ application {
     // Define the main class for the application.
     mainClassName = 'coding.challenge2.App'
 }
+run {
+    standardInput = System.in
+}
 
 test {
     useTestNG(){
