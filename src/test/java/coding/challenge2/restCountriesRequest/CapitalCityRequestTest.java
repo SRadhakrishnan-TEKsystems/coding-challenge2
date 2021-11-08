@@ -47,6 +47,6 @@ public class CapitalCityRequestTest {
     public void returnsNullForIncorrectInput(String countryInput){
         CapitalCity actual = CapitalCityRequest.getInstance(countryInput).get();
         CapitalCity expected =null;
-        Assert.assertEquals(actual,expected);
+        Assert.assertEquals(actual,expected,"Country with the given name exists");
     }
 }
