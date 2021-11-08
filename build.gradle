@@ -31,4 +31,12 @@ test {
     useTestNG(){
         includeGroups 'smoke', 'acceptance'
     }
+
+    jar {
+        manifest {
+            attributes 'Main-Class': 'coding.challenge2.App'
+        }
+        archiveBaseName = 'codingChallenge'
+        archiveVersion = '0.0.1'
+    }
 }

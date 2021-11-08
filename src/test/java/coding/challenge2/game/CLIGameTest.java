@@ -21,7 +21,7 @@ public class CLIGameTest {
                 {false,"yes",false}
         };
     }
-    @Test(dataProvider = "logicProvider", groups = "smoke")
+    @Test(dataProvider = "logicProvider")
     public void logicTest(Boolean quit,int userInput,Boolean expectedQuitState){
         Boolean expected=expectedQuitState;
         String countryName="Peru";
@@ -30,7 +30,7 @@ public class CLIGameTest {
     }
 
     //Tests pass for wrong reasons. Implementation needs to take into account a string input
-    @Test(dataProvider = "logicStringProvider", groups = "smoke")
+    @Test(dataProvider = "logicStringProvider")
     public void stringLogicTest(Boolean quit,String  userInput,Boolean expectedQuitState){
         Boolean actual=true;
         Boolean expected=expectedQuitState;
